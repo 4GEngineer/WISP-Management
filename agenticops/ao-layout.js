@@ -37,7 +37,7 @@
     return (
       '<div class="ao-wrap ao-nav-inner">' +
       '<a class="ao-brand" href="/" aria-label="AgenticOps home">' +
-      '<img class="ao-brand-mark" src="/logo.svg" alt="" width="40" height="40" loading="eager" />' +
+      '<img class="ao-brand-mark" src="/logo.svg" alt="" width="56" height="56" loading="eager" />' +
       '<span class="ao-brand-stack">' +
       '<span class="ao-brand-name">AgenticOps</span>' +
       '<span class="ao-brand-domain">agenticop.io</span>' +
@@ -57,7 +57,7 @@
     return (
       '<div class="ao-wrap ao-footer-inner">' +
       '<div class="ao-footer-brand">' +
-      '<img src="/logo.svg" alt="" width="32" height="32" loading="lazy" />' +
+      '<img class="ao-footer-mark" src="/logo.svg" alt="" width="48" height="48" loading="lazy" />' +
       '<span class="ao-brand-stack">' +
       '<span class="ao-brand-name ao-brand-name--footer">AgenticOps</span>' +
       '<span class="ao-brand-domain">agenticop.io</span>' +

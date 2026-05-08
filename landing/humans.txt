@@ -1,10 +1,9 @@
 /* wisptools.io */
 Site: https://wisptools.io
-Project: Open-source WISP/ISP tools (WISP Management, Bandwidth Test Manager)
-Repository: https://github.com/theorem6/WISP-Management
-Contact: See https://www.linkedin.com/in/vibe-architect/
+Focus: WISP Management (operations) + Bandwidth Test Manager (throughput proof)
+Repositories: https://github.com/theorem6/WISP-Management · https://github.com/theorem6/Bandwidth-Test-Manager
 
 /* Standards */
 HTML5, CSS3. Apps: SvelteKit, Firebase, Node, MongoDB.
 
-Last update: 2026-03
+Last update: 2026-05

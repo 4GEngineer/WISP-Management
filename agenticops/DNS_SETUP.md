@@ -59,6 +59,10 @@ Pick exactly one provider (do not mix MX providers):
 - ImprovMX (free forwarding)
 - Google Workspace / Fastmail (paid full mailbox)
 
+If you use **Google Workspace** and **GoDaddy** for DNS (multiple domains, primary-domain change, `admin@` → Gmail labels), follow:
+
+[docs/guides/GODADDY_GOOGLE_WORKSPACE_MULTI_DOMAIN.md](../docs/guides/GODADDY_GOOGLE_WORKSPACE_MULTI_DOMAIN.md)
+
 After setup:
 
 ```powershell
