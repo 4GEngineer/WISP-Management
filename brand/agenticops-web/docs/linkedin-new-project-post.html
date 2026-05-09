@@ -83,10 +83,14 @@
       padding: 28px 28px 32px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     }
-    .article p {
+    .article p,
+    .preview-body p {
       margin: 0 0 1rem;
       color: var(--dim);
       font-size: 1.05rem;
+    }
+    .preview-body p:last-child {
+      margin-bottom: 0;
     }
     .article p.lead {
       color: var(--text);
@@ -212,18 +216,10 @@
     <h1>Something new is on the way — <span class="grad" id="preview-title">verification that scales</span></h1>
 
     <article class="article" aria-label="Post preview">
-      <p class="lead" id="preview-open">
-        I’m getting ready to pull back the curtain on a project we’ve been hardening with real teams and real systems — not slides.
-      </p>
-      <p id="preview-mid">
-        If you’ve lived through legacy migrations, you know the failure mode: quiet regressions, heroic weekends, and “it worked in the demo.” The work ahead is about <strong>making change observable before it hits production</strong> — agents for speed, rigor for truth.
-      </p>
-      <p class="pullquote" id="preview-quote">
-        Agents explore. The stack has to prove it. That’s the bar we’re shipping toward.
-      </p>
-      <p id="preview-close">
-        Full write-up and links landing soon. Until then, everything about how we run pilots lives here:
-      </p>
+      <p class="lead" id="preview-open"></p>
+      <div id="preview-mid" class="preview-body"></div>
+      <p class="pullquote" id="preview-quote"></p>
+      <p id="preview-close"></p>
       <div class="url-pill">
         <span aria-hidden="true">→</span>
         <a id="preview-url" href="https://agenticop.io">https://agenticop.io</a>
@@ -249,19 +245,22 @@
   <script>
     (function () {
       var CONFIG = {
-        projectName: "the next chapter",
+        projectName: "verification-first agent ops",
+        openingLine:
+          "I’m going to share more soon about AgenticOps — a frame for agent-assisted change where speed doesn’t get to skip evidence.",
         teaserLine:
-          "If you’ve lived through legacy migrations, you know the failure mode: quiet regressions, heroic weekends, and “it worked in the demo.” The work ahead is about making change observable before it hits production — agents for speed, rigor for truth.",
+          "**What it tries to do:** use agents to accelerate exploration and drafting on hard migrations, while insisting on mechanical checks before you trust output — replay, behavior comparison, an explicit “no silent wrong answers” bar. The failure mode it targets is quiet drift: everything looks fine until it isn’t.\n\n**Where it honestly is:** early. Largely untested as a packaged approach — more thesis and build-in-progress than a proven playbook. I’m putting it forward now because critique early beats a polished story later.",
         quoteLine:
-          "Agents explore. The stack has to prove it. That’s the bar we’re shipping toward.",
+          "Exploration can be automated; the proof still has to land.",
         url: "https://agenticop.io",
         urlDisplay: "https://agenticop.io",
         closingLine:
-          "Full write-up and links landing soon. Until then, everything about how we run pilots lives here:",
-        hashtags: "#AgenticOps #BuildInPublic #Engineering #LegacyModernization"
+          "Context, positioning, and what gets published next will live here:",
+        hashtags: "#AgenticOps #BuildInPublic #SoftwareEngineering #LegacyModernization"
       };
 
       var titleEl = document.getElementById("preview-title");
+      var openEl = document.getElementById("preview-open");
       var midEl = document.getElementById("preview-mid");
       var quoteEl = document.getElementById("preview-quote");
       var closeEl = document.getElementById("preview-close");
@@ -269,10 +268,14 @@
       var ta = document.getElementById("li-text");
 
       titleEl.textContent = CONFIG.projectName;
-      midEl.innerHTML = CONFIG.teaserLine.replace(
-        /\*\*(.+?)\*\*/g,
-        "<strong>$1</strong>"
-      );
+      openEl.textContent = CONFIG.openingLine;
+      midEl.innerHTML = CONFIG.teaserLine.split(/\n\n+/).map(function (block) {
+        return (
+          "<p>" +
+          block.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") +
+          "</p>"
+        );
+      }).join("");
       quoteEl.textContent = CONFIG.quoteLine;
       closeEl.textContent = CONFIG.closingLine;
       urlEl.href = CONFIG.url;
@@ -280,7 +283,8 @@
 
       var plainTeaser = CONFIG.teaserLine.replace(/\*\*(.+?)\*\*/g, "$1");
       var post =
-        "I’m getting ready to pull back the curtain on a project we’ve been hardening with real teams and real systems — not slides.\n\n" +
+        CONFIG.openingLine +
+        "\n\n" +
         plainTeaser +
         "\n\n" +
         "“" +
