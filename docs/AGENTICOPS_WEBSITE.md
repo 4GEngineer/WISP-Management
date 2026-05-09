@@ -16,6 +16,6 @@ For **Cursor / AI** work on copy, layout, domains, or Firebase Hosting for this 
 - `brand/agenticops-web/AGENTS.md`
 - `brand/agenticops-web/docs/AI_CONTEXT.md`
 
-To publish the same tree from a **private GitHub repository**, follow `brand/agenticops-web/docs/PRIVATE_REPOSITORY.md`.
+**Private GitHub repo:** [theorem6/agenticops-web](https://github.com/theorem6/agenticops-web) (private). Sync `brand/agenticops-web/` into that clone when you change the monorepo copy. Details: `brand/agenticops-web/docs/PRIVATE_REPOSITORY.md`.
 
 The **wisptools.io** landing remains in **`landing/`** and deploys with `hosting:landing` from the repo root.

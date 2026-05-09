@@ -4,6 +4,14 @@
 
 Keep **AgenticOps marketing** (this tree) in a **private** remote while optionally leaving **WISP-Management** public or separately permissioned.
 
+## Existing private repository
+
+A **private** repo was created for this site (sync content from `brand/agenticops-web/` when the monorepo changes):
+
+- **https://github.com/theorem6/agenticops-web** (default branch: `main`)
+
+Local clone used for the first push may live outside the monorepo (e.g. `Downloads/agenticops-web`). Either push updates from that clone or re-copy from `brand/agenticops-web/` and commit.
+
 ## Option A — New repo from this folder
 
 1. Create an empty **private** repository on GitHub (no README).
