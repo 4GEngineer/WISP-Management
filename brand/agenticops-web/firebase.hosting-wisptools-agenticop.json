@@ -8,10 +8,13 @@
         "firebase.hosting-wisptools-agenticop.json",
         "**/.*",
         "**/node_modules/**",
-        "**/*.md",
+        "AGENTS.md",
+        "README.md",
+        "DNS_SETUP.md",
+        "DOMAIN_DECISION_CHECKLIST.md",
+        "LINKEDIN_LAUNCH.md",
         "docs/**",
         "scripts/**",
-        "AGENTS.md",
         ".firebaserc.example"
       ],
       "errorDocument": "404.html",
@@ -28,6 +31,19 @@
         {
           "source": "**/*.@(html|json|xml|txt)",
           "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**/*.md",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/markdown; charset=utf-8"
+            },
             {
               "key": "Cache-Control",
               "value": "no-cache, no-store, must-revalidate"

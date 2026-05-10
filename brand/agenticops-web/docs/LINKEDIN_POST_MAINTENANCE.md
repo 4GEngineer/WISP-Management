@@ -27,19 +27,26 @@ The **`CONFIG`** object keys are read by that script only. Safe to edit **values
 - **`CONFIG.projectName`** — short headline fragment inside the H1.
 - **`CONFIG.openingLine`**, **`CONFIG.teaserLine`** — use `**bold**` sparingly; script strips to plain text for LinkedIn.
 - **`CONFIG.quoteLine`**, **`CONFIG.closingLine`**, **`CONFIG.url`**, **`CONFIG.urlDisplay`**, **`CONFIG.hashtags`**.
-- **`CONFIG.whitepaperUrl`** / **`CONFIG.whitepaperLabel`** — must stay in sync with the **canonical technical doc** (today: Chrysalis repo **`docs/AGENTICOP.md`**). If the doc moves or renames, update here and every **public** link (see below).
+- **`CONFIG.whitepaperUrl`** / **`CONFIG.whitepaperLabel`** — public URL is **`https://agenticop.io/AGENTICOP.md`** (mirrored markdown at site root). Keep in sync with **`AGENTICOP.md`** in this folder and with the in-repo source in Chrysalis (`docs/AGENTICOP.md`).
 
-## Canonical technical whitepaper (public site + repo)
+## Canonical technical whitepaper
 
-- **URL:** `https://github.com/4GEngineer/chrysalis/blob/main/docs/AGENTICOP.md`  
-- **Meaning:** Long-form technical / practice narrative for AgenticOps + Chrysalis (lives in the **Chrysalis** repository, not in this marketing tree).
+- **Public URL (what you link in posts and on pages):** `https://agenticop.io/AGENTICOP.md` — served from **`brand/agenticops-web/AGENTICOP.md`** (Firebase does not deploy `docs/**`; this file lives at **site root**).
+- **Source of truth (engineering):** Chrysalis repository `docs/AGENTICOP.md` (may be private on GitHub). Refresh the mirror after substantive edits:
 
-When the whitepaper path or repo changes, update:
+```powershell
+cd brand/agenticops-web
+$b64 = gh api repos/4GEngineer/chrysalis/contents/docs/AGENTICOP.md -q .content
+[IO.File]::WriteAllBytes("$PWD\AGENTICOP.md", [Convert]::FromBase64String($b64))
+# Re-apply the short "Public copy" blockquote at the top if the upstream file replaced it.
+```
 
-1. `docs/linkedin-new-project-post.html` → `CONFIG.whitepaperUrl` (and label if needed)  
-2. `index.html` → hero / Explore whitepaper link  
-3. `proof.html` → Chrysalis status list link  
-4. This file (above URL) and **`AGENTS.md`** (whitepaper line)
+When the **public path** or filename changes, update:
+
+1. `docs/linkedin-new-project-post.html` → `CONFIG.whitepaperUrl`  
+2. `index.html` → `/AGENTICOP.md` links  
+3. `proof.html` → `/AGENTICOP.md` link  
+4. This file, **`AGENTS.md`**, **`docs/AI_CONTEXT.md`**, and **`sitemap.xml`** if listed
 
 ## Brand row logo
 
