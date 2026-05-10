@@ -8,6 +8,8 @@ Current decision:
 
 This guide keeps production stable now and makes the December switch fast.
 
+**Firebase Hosting for AgenticOps:** dedicated GCP/Firebase project **`agenticops-io-web`**, default site **`agenticops-io-web`** → **`https://agenticops-io-web.web.app`**. Custom domain **`agenticop.io`** must be attached **here**, not under **`wisptools-production`**. If **`agenticop.io`** still appears on the old site **`agenticops-production`**, remove it there before adding it to the new project (Firebase allows one attachment per hostname).
+
 ---
 
 ## Remove `agenticops.io` from Firebase Hosting
@@ -16,9 +18,9 @@ Custom domains are **not** stored in `firebase.json`; Firebase keeps them on the
 
 ### Option A — Firebase Console
 
-1. Open **[Hosting → agenticops-production](https://console.firebase.google.com/project/wisptools-production/hosting/sites/agenticops-production)** (project `wisptools-production`).
-2. Under **Custom domains**, select **`agenticops.io`** and **`www.agenticops.io`** (if listed) → menu (**⋮**) → **Remove domain**.
-3. If the domain also appears on another site in the same project (e.g. `wisptools-production`), repeat on that site’s Hosting page.
+1. Open the Hosting site that wrongly lists the domain — historically **[agenticops-production](https://console.firebase.google.com/project/wisptools-production/hosting/sites/agenticops-production)** under **`wisptools-production`**, or any other site shown in Console for **`agenticop.io`** / **`www.agenticop.io`**.
+2. Under **Custom domains**, select those hostnames → menu (**⋮**) → **Remove domain**.
+3. Repeat on any other Firebase site until **`agenticop.io`** is free to add under **`agenticops-io-web`**.
 
 Also remove any leftover Firebase **verification TXT** / **A / CNAME** records for `agenticops.io` at your DNS host so nothing still points at Hosting.
 
@@ -35,11 +37,11 @@ From **this site directory** (`brand/agenticops-web/` in the monorepo, or repo r
 
 ## 1) Current production domain (agenticop.io)
 
-Use Firebase Hosting site `agenticops-production` as the origin.
+Use Firebase project **`agenticops-io-web`** → Hosting → default site **`agenticops-io-web`** as the origin.
 
 ### Firebase console steps
 
-1. Firebase Console → `wisptools-production` → Hosting → site `agenticops-production`.
+1. Firebase Console → **`agenticops-io-web`** → **Hosting** → site **`agenticops-io-web`** ([direct link](https://console.firebase.google.com/project/agenticops-io-web/hosting)).
 2. Add custom domain:
    - `agenticop.io`
    - `www.agenticop.io`
@@ -54,7 +56,7 @@ Use the exact values Firebase shows, but these are typical:
 agenticop.io      TXT    <firebase verification value>
 agenticop.io      A      151.101.1.195
 agenticop.io      A      151.101.65.195
-www.agenticop.io  CNAME  agenticops-production.web.app
+www.agenticop.io  CNAME  agenticops-io-web.web.app
 ```
 
 ### Quick verification
@@ -116,7 +118,7 @@ Goal: keep SEO and links intact while flipping to the stronger spelling.
 
 ```powershell
 cd brand/agenticops-web   # monorepo; omit if this folder is your repo root
-firebase deploy --only hosting:agenticops
+firebase deploy --only hosting --project agenticops-io-web
 ```
 
 3. Add permanent redirects:

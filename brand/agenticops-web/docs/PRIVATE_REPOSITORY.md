@@ -26,10 +26,10 @@ Local clone used for the first push may live outside the monorepo (e.g. `Downloa
    git push -u origin main
    ```
 4. Install Firebase CLI if needed; `firebase login`.
-5. Confirm `.firebaserc` **`project`** and **hosting target → site ID** match where you deploy (today: project `wisptools-production`, site `agenticops-production`). To use a **new** Firebase project, create it in Console, create a Hosting site, then replace IDs using `.firebaserc.example` as a template.
+5. Confirm `.firebaserc` **`default` project** is **`agenticops-io-web`** (dedicated Hosting for this site). Override only if you intentionally use another GCP project.
 6. Deploy:
    ```powershell
-   firebase deploy --only hosting:agenticops
+   firebase deploy --only hosting --project agenticops-io-web
    ```
 
 ## Option B — Git subtree (stay monorepo, push subtree to private)

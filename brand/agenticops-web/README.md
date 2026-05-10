@@ -26,16 +26,20 @@ Multi-page site (no catch-all rewrite to `index.html` for `.html` routes).
 
 ## Deploy (Firebase)
 
+Dedicated Firebase project: **`agenticops-io-web`**. Default Hosting site ID matches the project ID → **`https://agenticops-io-web.web.app`**.
+
 From **this directory** (not the monorepo root):
 
 ```bash
 cd brand/agenticops-web   # from monorepo root
-firebase deploy --only hosting:agenticops
+firebase deploy --only hosting --project agenticops-io-web
 ```
 
-Requires Firebase CLI and access to the configured project (default in `.firebaserc`: **`wisptools-production`**, Hosting site **`agenticops-production`**). Override by editing `.firebaserc` or using `firebase use`.
+Always pass **`--project agenticops-io-web`** so the CLI never picks the monorepo root default (**`wisptools-production`**). `.firebaserc` in this folder lists **`agenticops-io-web`** as default for standalone clones.
 
-**Monorepo root** `firebase.json` no longer includes this site; deploy AgenticOps only from here.
+**Monorepo root** `firebase.json` does not deploy this site; deploy AgenticOps only from here.
+
+**Custom domain:** Attach **`agenticop.io`** to Hosting in project **`agenticops-io-web`** (Console). If it still exists on the old multi-site project (**`wisptools-production`** / **`agenticops-production`**), remove it there first to avoid conflicts. See **`DNS_SETUP.md`**.
 
 ## Brand architecture (short)
 
