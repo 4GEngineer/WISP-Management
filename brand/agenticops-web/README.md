@@ -30,16 +30,24 @@ Dedicated Firebase project: **`agenticops-io-web`**. Default Hosting site ID mat
 
 From **this directory** (not the monorepo root):
 
+**Dedicated project (default Firebase URL):**
+
 ```bash
 cd brand/agenticops-web   # from monorepo root
 firebase deploy --only hosting --project agenticops-io-web
 ```
 
-Always pass **`--project agenticops-io-web`** so the CLI never picks the monorepo root default (**`wisptools-production`**). `.firebaserc` in this folder lists **`agenticops-io-web`** as default for standalone clones.
+**Custom domain still on `wisptools-production` / site `agenticops-production`:** deploy the same files there so **`https://agenticop.io`** matches **`agenticops-io-web`** once Console/DNS point at the right place — or run this whenever the apex domain is still mapped to that site:
+
+```powershell
+.\scripts\deploy-custom-domain-hosting.ps1
+```
+
+Always pass **`--project agenticops-io-web`** for the dedicated project so the CLI never picks the monorepo root default (**`wisptools-production`**).
 
 **Monorepo root** `firebase.json` does not deploy this site; deploy AgenticOps only from here.
 
-**Custom domain:** Attach **`agenticop.io`** to Hosting in project **`agenticops-io-web`** (Console). If it still exists on the old multi-site project (**`wisptools-production`** / **`agenticops-production`**), remove it there first to avoid conflicts. See **`DNS_SETUP.md`**.
+**Custom domain:** Prefer attaching **`agenticop.io`** to **`agenticops-io-web`** in Console and updating DNS per **`DNS_SETUP.md`**. Until then, keep **`agenticops-production`** in sync with the script above if that site still owns the domain.
 
 ## Brand architecture (short)
 

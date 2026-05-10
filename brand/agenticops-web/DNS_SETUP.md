@@ -8,7 +8,9 @@ Current decision:
 
 This guide keeps production stable now and makes the December switch fast.
 
-**Firebase Hosting for AgenticOps:** dedicated GCP/Firebase project **`agenticops-io-web`**, default site **`agenticops-io-web`** → **`https://agenticops-io-web.web.app`**. Custom domain **`agenticop.io`** must be attached **here**, not under **`wisptools-production`**. If **`agenticop.io`** still appears on the old site **`agenticops-production`**, remove it there before adding it to the new project (Firebase allows one attachment per hostname).
+**Firebase Hosting for AgenticOps:** dedicated GCP/Firebase project **`agenticops-io-web`**, default site **`agenticops-io-web`** → **`https://agenticops-io-web.web.app`**. Long term, attach **`agenticop.io`** here and remove it from any other Hosting site.
+
+**Until DNS/custom domain is moved:** `agenticop.io` may still resolve to a **different** Firebase Hosting backend than `agenticops-io-web.web.app`. If you see a **white background**, inline `<style>`, and **`/agenticops.css` returns 404**, the apex domain is **not** serving this multi-page site — it is an older single-file deploy. Fix: in Firebase Console, find which Hosting site lists **`agenticop.io`** under **Custom domains**, then either remove the domain and add it to **`agenticops-io-web`**, or deploy the current dark site to **that** site (see `scripts/deploy-custom-domain-hosting.ps1` for **`agenticops-production`** on **`wisptools-production`**).
 
 ---
 

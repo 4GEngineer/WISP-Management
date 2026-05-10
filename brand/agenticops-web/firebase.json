@@ -3,6 +3,7 @@
     "public": ".",
     "ignore": [
       "firebase.json",
+      "firebase.hosting-wisptools-agenticop.json",
       "**/.*",
       "**/node_modules/**",
       "**/*.md",

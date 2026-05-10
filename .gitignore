@@ -47,6 +47,7 @@ ui-debug.log
 !package-lock.json
 !tsconfig.json
 !firebase.json
+!brand/agenticops-web/firebase.hosting-wisptools-agenticop.json
 !apphosting*.yaml
 !firestore.*.json
 !cloudbuild.json
