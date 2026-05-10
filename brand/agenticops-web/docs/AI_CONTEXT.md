@@ -9,7 +9,7 @@ This document captures **operator intent** and constraints gathered from ongoing
 | Layer | Name | Visibility | Notes |
 |-------|------|------------|--------|
 | Parent methodology / services brand | **AgenticOps** | Public site `agenticop.io` | **Transformative code** (verification-first). Narrative: Chrysalis as **first flagship**; long arc toward **macro systemic fragility** (finance, governance, cascades) — **no separate named “future project”** on site unless operator adds it. |
-| Engine (product name on site) | **Chrysalis** | **Private alpha** | Verification-backed migration; **legacy PHP estates** called out as primary proving surface (oracle from running PHP, replay, chimera). No public repo link yet; MIT **planned**. |
+| Engine (product name on site) | **Chrysalis** | **GitHub + pilot alpha** | Repo: **https://github.com/4GEngineer/chrysalis** (org **4GEngineer**, not inside theorem6/WISP-Management). PHP-first verification migration; pilots scoped **one system at a time**. |
 | Public WISP / ISP proof stack | **wisptools.io** | Public MIT on GitHub | **WISP Management** (operations) + **Bandwidth Test Manager** (throughput proof). Featured as proof the methodology ships real systems. |
 | Field tooling | **WISP Field App** | Public repo path under WISP-Management | Cited as shipped proof where relevant. |
 
@@ -55,7 +55,7 @@ This document captures **operator intent** and constraints gathered from ongoing
 
 ## Editorial guardrails (summary)
 
-- No Chrysalis GitHub link until explicitly approved.
+- Chrysalis: link **https://github.com/4GEngineer/chrysalis** where appropriate; distinguish from theorem6/WISP-Management URLs.
 - WISPTools / Bandwidth Test Manager / Field App: public links OK when used as **proof**.
 - Voice: anti-hype, engineering credibility, migration verification themes.
 

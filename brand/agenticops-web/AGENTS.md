@@ -11,7 +11,7 @@ Use this file when editing **this folder** (`brand/agenticops-web/` in the WISP-
 
 ## Hard rules
 
-1. **Chrysalis** — Referenced as **private alpha** / verification migration engine; **primary proving surface on site copy is legacy PHP** (capture → replay → chimera). **No public GitHub URL** on any HTML page or JSON-LD until an explicit human decision says otherwise. Update `index.html`, JSON-LD `sameAs`, and `LINKEDIN_LAUNCH.md` together if that ever changes.
+1. **Chrysalis** — **Source:** https://github.com/4GEngineer/chrysalis (separate from WISP-Management). **Private alpha** = pilot engagement maturity, not hidden code. **PHP-first** (capture → replay → chimera). Link the repo from `proof.html` and key CTAs; keep license claims aligned with the repo’s **LICENSE** file.
 2. **Tone:** Confident, technical, anti-hype. Prefer “shipped,” “verified,” “in production” over vague “AI-powered.”
 3. **Hosting:** Firebase Hosting site **`agenticops-production`** (typical), target **`agenticops`** in local `firebase.json`. Deploy from **this directory**: `firebase deploy --only hosting:agenticops`.
 4. **URLs:** Multi-page site uses **real `.html` paths** (e.g. `/services.html`). Do **not** add a catch-all rewrite to `index.html` for HTML routes (that broke interior pages historically).

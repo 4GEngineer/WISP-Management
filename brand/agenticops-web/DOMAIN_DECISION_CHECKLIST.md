@@ -96,4 +96,4 @@ Regardless of path:
 
 - Do not pause pipeline or sales messaging for branding perfection.
 - Keep offers unchanged: Pilot, Run, Enablement.
-- Keep Chrysalis private until you choose to open it.
+- Chrysalis code is public at **https://github.com/4GEngineer/chrysalis** (early); how you pitch pilots and roadmap stays your call.

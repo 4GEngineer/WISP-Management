@@ -71,12 +71,13 @@
       link('about', '/about.html', 'About') +
       link('contact', '/contact.html', 'Contact') +
       '<a href="https://wisptools.io" target="_blank" rel="noopener">wisptools.io</a>' +
+      '<a href="https://github.com/4GEngineer/chrysalis" target="_blank" rel="noopener">Chrysalis</a>' +
       '<a href="https://github.com/theorem6" target="_blank" rel="noopener">GitHub</a>' +
       '<a href="https://www.linkedin.com/in/vibe-architect/" target="_blank" rel="noopener">LinkedIn</a>' +
       '</nav>' +
       '<p class="ao-footer-fine">© <span id="ao-year">' +
       year +
-      '</span> AgenticOps. Agents explore. Chrysalis proves. You ship.</p>' +
+      '</span> AgenticOps. One system at a time. Chrysalis proves. You ship.</p>' +
       '</div>'
     );
   }

@@ -2,7 +2,7 @@
 
 **Brand:** AgenticOps · **Canonical domain:** **agenticop.io** (see `DOMAIN_DECISION_CHECKLIST.md` for optional `agenticops.io` migration).
 
-Static multi-page site: verification-backed migrations and agent-led modernization; **Chrysalis** is referenced as **private alpha** (no public repo link on pages).
+Static multi-page site: verification-backed migrations and agent-led modernization; **Chrysalis** source is **https://github.com/4GEngineer/chrysalis** (early); pilots described as private alpha.
 
 ## Where this folder lives
 
@@ -40,7 +40,7 @@ Requires Firebase CLI and access to the configured project (default in `.firebas
 ## Brand architecture (short)
 
 - **AgenticOps** — this site.
-- **Chrysalis** — private alpha engine; no public GitHub link on site until explicitly approved.
+- **Chrysalis** — https://github.com/4GEngineer/chrysalis
 - **wisptools.io** — public MIT WISP stack; proof point; links from this site are intentional.
 
 ## SEO
