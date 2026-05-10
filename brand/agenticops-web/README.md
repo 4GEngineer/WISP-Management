@@ -13,6 +13,7 @@ Static multi-page site: verification-backed migrations and agent-led modernizati
 
 - **`AGENTS.md`** — concise rules and file map for Cursor (and similar).
 - **`docs/AI_CONTEXT.md`** — full operator intent, domain strategy, and constraints for future development sessions.
+- **`docs/LINKEDIN_POST_MAINTENANCE.md`** — what must stay stable in `docs/linkedin-new-project-post.html` when editing copy; whitepaper URL checklist.
 
 ## Layout
 

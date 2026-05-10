@@ -11,7 +11,7 @@ Use this file when editing **this folder** (`brand/agenticops-web/` in the WISP-
 
 ## Hard rules
 
-1. **Chrysalis** — **Source:** https://github.com/4GEngineer/chrysalis (separate from WISP-Management). **Private alpha** = pilot engagement maturity, not hidden code. **PHP-first** (capture → replay → chimera). Link the repo from `proof.html` and key CTAs; keep license claims aligned with the repo’s **LICENSE** file.
+1. **Chrysalis** — **Source:** https://github.com/4GEngineer/chrysalis (separate from WISP-Management). **Private alpha** = pilot engagement maturity, not hidden code. **PHP-first** (capture → replay → chimera). Link the repo from `proof.html` and key CTAs; keep license claims aligned with the repo’s **LICENSE** file. **Technical whitepaper:** https://github.com/4GEngineer/chrysalis/blob/main/docs/AGENTICOP.md — link from `index.html` + `proof.html`; if the path changes, update those pages, `docs/linkedin-new-project-post.html` `CONFIG.whitepaperUrl`, and `docs/LINKEDIN_POST_MAINTENANCE.md`.
 2. **Tone:** Confident, technical, anti-hype. Prefer “shipped,” “verified,” “in production” over vague “AI-powered.”
 3. **Hosting:** Dedicated Firebase project **`agenticop-io`**; default Hosting site **`agenticop-io`** (`https://agenticop-io.web.app`). Deploy from **this directory**: `firebase deploy --only hosting --project agenticop-io` (always include **`--project`** when this folder lives inside the monorepo).
 4. **URLs:** Multi-page site uses **real `.html` paths** (e.g. `/services.html`). Do **not** add a catch-all rewrite to `index.html` for HTML routes (that broke interior pages historically).
@@ -29,6 +29,7 @@ Use this file when editing **this folder** (`brand/agenticops-web/` in the WISP-
 | `logo.svg` | Brand mark |
 | `sitemap.xml`, `robots.txt`, `humans.txt` | SEO / discovery |
 | `DNS_SETUP.md` | Firebase + DNS + domain removal notes |
+| `docs/LINKEDIN_POST_MAINTENANCE.md` | LinkedIn helper (`linkedin-new-project-post.html`): stable DOM ids, CONFIG fields, whitepaper URL sync |
 | `docs/AI_CONTEXT.md` | Full operator intent for future AI sessions |
 
 ## Firebase / domains

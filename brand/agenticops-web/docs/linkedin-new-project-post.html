@@ -185,6 +185,20 @@
       color: var(--cyan);
       border: 1px solid rgba(94, 234, 212, 0.4);
     }
+    .whitepaper-row {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-family: var(--mono);
+    }
+    .whitepaper-row a {
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(94, 234, 212, 0.35);
+    }
+    .whitepaper-row a:hover {
+      color: #fff;
+      border-bottom-color: rgba(255, 255, 255, 0.35);
+    }
     .toast {
       font-size: 0.85rem;
       color: var(--cyan);
@@ -201,10 +215,8 @@
 </head>
 <body>
   <!--
-    EDIT BEFORE SHARING (or use the generated LinkedIn text below):
-    PROJECT_NAME   — your upcoming project name (or leave teaser-only copy)
-    PROJECT_URL    — landing page (default: https://agenticop.io)
-    TEASER_LINE    — one line on what’s coming
+    EDIT the CONFIG block at the bottom of this file before sharing.
+    Do not rename element ids (preview-title, preview-open, li-text, …) — see docs/LINKEDIN_POST_MAINTENANCE.md
   -->
   <div class="shell">
     <div class="brand-row">
@@ -224,6 +236,10 @@
         <span aria-hidden="true">→</span>
         <a id="preview-url" href="https://agenticop.io">https://agenticop.io</a>
       </div>
+      <p class="whitepaper-row" id="preview-whitepaper-wrap" hidden>
+        <span id="preview-whitepaper-label"></span>
+        <a id="preview-whitepaper" href="#" target="_blank" rel="noopener"></a>
+      </p>
     </article>
 
     <div class="panel">
@@ -238,7 +254,7 @@
     </div>
 
     <footer class="note">
-      This file is for your desktop (opens from <code>docs/</code>). It is not deployed with the public site. Refresh after editing the CONFIG block in the script below.
+      This file is for your desktop (opens from <code>docs/</code>). It is not deployed with the public site. Refresh after editing the CONFIG block in the script below. Maintenance contract: <code>docs/LINKEDIN_POST_MAINTENANCE.md</code>.
     </footer>
   </div>
 
@@ -256,6 +272,9 @@
         urlDisplay: "https://agenticop.io",
         closingLine:
           "The fuller story — Chrysalis, method, proof — lives here:",
+        whitepaperUrl:
+          "https://github.com/4GEngineer/chrysalis/blob/main/docs/AGENTICOP.md",
+        whitepaperLabel: "Technical detail:",
         hashtags:
           "#AgenticOps #SystemsThinking #SoftwareEngineering #ComplexSystems #BuildInPublic"
       };
@@ -266,6 +285,9 @@
       var quoteEl = document.getElementById("preview-quote");
       var closeEl = document.getElementById("preview-close");
       var urlEl = document.getElementById("preview-url");
+      var wpWrap = document.getElementById("preview-whitepaper-wrap");
+      var wpLabel = document.getElementById("preview-whitepaper-label");
+      var wpEl = document.getElementById("preview-whitepaper");
       var ta = document.getElementById("li-text");
 
       titleEl.textContent = CONFIG.projectName;
@@ -285,6 +307,13 @@
       urlEl.href = CONFIG.url;
       urlEl.textContent = CONFIG.urlDisplay;
 
+      if (CONFIG.whitepaperUrl && wpWrap && wpEl) {
+        wpWrap.hidden = false;
+        if (wpLabel) wpLabel.textContent = (CONFIG.whitepaperLabel || "Technical whitepaper") + " ";
+        wpEl.href = CONFIG.whitepaperUrl;
+        wpEl.textContent = CONFIG.whitepaperUrl;
+      }
+
       var plainTeaser = CONFIG.teaserLine.replace(/\*\*(.+?)\*\*/g, "$1");
       var plainOpen = CONFIG.openingLine.replace(/\*\*(.+?)\*\*/g, "$1");
       var post =
@@ -298,8 +327,15 @@
         CONFIG.closingLine +
         "\n" +
         CONFIG.urlDisplay +
-        "\n\n" +
-        CONFIG.hashtags;
+        "\n";
+      if (CONFIG.whitepaperUrl) {
+        post +=
+          (CONFIG.whitepaperLabel || "Technical whitepaper") +
+          " " +
+          CONFIG.whitepaperUrl +
+          "\n";
+      }
+      post += "\n" + CONFIG.hashtags;
 
       ta.value = post;
 
